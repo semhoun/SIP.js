@@ -9,6 +9,7 @@ import {
   SimpleUserMediaRemote,
   SimpleUserOptions
 } from "../simple-user";
+import { Levels } from "../../../core/log/levels";
 
 export type ToIPMedia = SimpleUserMedia;
 export type ToIPMediaConstraints = SimpleUserMediaConstraints;
@@ -26,12 +27,20 @@ export class ToIP extends SimpleUser {
    * Constructs a new instance of the `SimpleUser` class.
    * @param server - SIP WebSocket Server URL.
    * @param options - Options bucket. See {@link SimpleUserOptions} for details.
-   * @param logs - Activate od deactivate logs
+   * @param debug - If not set log level to error
    */
-  constructor(server: string, options: SimpleUserOptions = {}, logs = true) {
+  constructor({
+    server,
+    options = {},
+    debug = false
+  }: {
+    server: string;
+    options?: SimpleUserOptions;
+    debug?: boolean;
+  }) {
     super(server, options);
-    if (!logs) {
-      logs = !logs;
+    if (!debug) {
+      this.logger.level = Levels.error;
     }
   }
 
