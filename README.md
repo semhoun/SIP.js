@@ -139,6 +139,11 @@ npm run build-and-test
 
 For more info please see the [Documentation](./docs/README.md).
 
+If your need to add chome:
+
+```bash
+apt-get update && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && apt install -y ./google-chrome-stable_current_amd64.deb && rm ./google-chrome-stable_current_amd64.deb
+```
 ## Support
 
 * For migration guides and API reference please see the [Documentation](./docs/README.md).
