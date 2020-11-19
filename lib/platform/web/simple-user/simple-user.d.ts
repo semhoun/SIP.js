@@ -1,4 +1,5 @@
-import { InvitationAcceptOptions, InviterInviteOptions, InviterOptions, RegistererOptions, RegistererRegisterOptions, RegistererUnregisterOptions } from "../../../api";
+import { InvitationAcceptOptions, InviterInviteOptions, InviterOptions, Registerer, RegistererOptions, RegistererRegisterOptions, RegistererUnregisterOptions, Session, UserAgent } from "../../../api";
+import { Logger } from "../../../core";
 import { SimpleUserDelegate } from "./simple-user-delegate";
 import { SimpleUserOptions } from "./simple-user-options";
 /**
@@ -13,15 +14,15 @@ import { SimpleUserOptions } from "./simple-user-options";
 export declare class SimpleUser {
     /** Delegate. */
     delegate: SimpleUserDelegate | undefined;
-    private attemptingReconnection;
-    private connectRequested;
-    private logger;
-    private held;
-    private options;
-    private registerer;
-    private registerRequested;
-    private session;
-    private userAgent;
+    protected attemptingReconnection: boolean;
+    protected connectRequested: boolean;
+    protected logger: Logger;
+    protected held: boolean;
+    protected options: SimpleUserOptions;
+    protected registerer: Registerer | undefined;
+    protected registerRequested: boolean;
+    protected session: Session | undefined;
+    protected userAgent: UserAgent;
     /**
      * Constructs a new instance of the `SimpleUser` class.
      * @param server - SIP WebSocket Server URL.
