@@ -41,15 +41,15 @@ export class SimpleUser {
   /** Delegate. */
   public delegate: SimpleUserDelegate | undefined;
 
-  private attemptingReconnection = false;
-  private connectRequested = false;
-  private logger: Logger;
-  private held = false;
-  private options: SimpleUserOptions;
-  private registerer: Registerer | undefined = undefined;
-  private registerRequested = false;
-  private session: Session | undefined = undefined;
-  private userAgent: UserAgent;
+  protected attemptingReconnection = false;
+  protected connectRequested = false;
+  protected logger: Logger;
+  protected held = false;
+  protected options: SimpleUserOptions;
+  protected registerer: Registerer | undefined = undefined;
+  protected registerRequested = false;
+  protected session: Session | undefined = undefined;
+  protected userAgent: UserAgent;
 
   /**
    * Constructs a new instance of the `SimpleUser` class.
