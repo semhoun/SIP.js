@@ -26,18 +26,10 @@ export class ToIP extends SimpleUser {
   /**
    * Constructs a new instance of the `SimpleUser` class.
    * @param server - SIP WebSocket Server URL.
-   * @param options - Options bucket. See {@link SimpleUserOptions} for details.
+   * @param options - Options bucket. See {@link ToIPOptions} for details.
    * @param debug - If not set log level to error
    */
-  constructor({
-    server,
-    options = {},
-    debug = false
-  }: {
-    server: string;
-    options?: SimpleUserOptions;
-    debug?: boolean;
-  }) {
+  constructor(server: string, options: ToIPOptions = {}, debug = false) {
     super(server, options);
     if (!debug) {
       this.logger.level = Levels.error;
